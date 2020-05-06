@@ -13,7 +13,9 @@ En la siguiente arquitectura podemos ver el host en AZURE del contenedor de la A
 ## 1-Pasos para la instalación : 
 Descargar el proyecto de github:
 Ejecutar en su consola git:
+```git
 $ git clone https://github.com/rodrigoarias12/SVChallenge
+```
 ## 2-Abrir el proyecto con visual studio. 
 ## 3-Desde la consola de visual studio se ejecuto la siguiente sentencia para migrar la base a un script.
 dotnet ef migrations script --output "script.sql" --project Persona.API

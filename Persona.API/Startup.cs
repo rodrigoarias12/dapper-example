@@ -15,6 +15,7 @@ using Microsoft.OpenApi.Models;
 using Persona.API.Controllers;
 using Persona.API.Infrastructure.Repository;
 using Persona.API.Model;
+using AutoMapper;
 
 namespace Persona.API
 {
@@ -65,6 +66,9 @@ namespace Persona.API
             services.AddDbContext<PersonaContext>(options => options.UseSqlServer(connection));
             //iod
             services.AddTransient<IEstadisticaRepository, EstadisticasRepository>();
+
+            //automapper
+            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

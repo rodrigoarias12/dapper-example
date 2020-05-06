@@ -12,6 +12,10 @@ using System.Threading.Tasks;
 using Xunit;
 using Persona.API.Infrastructure.Repository;
 using Microsoft.Extensions.Configuration;
+using AutoMapper;
+using Persona.API.ModelView;
+using Microsoft.Extensions.Logging;
+using Persona.API.Service;
 
 namespace Persona.UnitTest.Application
 {
@@ -19,9 +23,11 @@ namespace Persona.UnitTest.Application
     {
 
         private readonly DbContextOptions<PersonaContext> _dbOptions;
-
+      
         public PersonasControllerTest()
         {
+
+            //db
             _dbOptions = new DbContextOptionsBuilder<PersonaContext>()
                 .UseInMemoryDatabase(databaseName: "in-memory")
                 .Options;
@@ -70,6 +76,19 @@ namespace Persona.UnitTest.Application
         [Fact]
         public async Task Get_Persona_success()
         {
+
+            //mapper
+         
+          
+
+            var myProfile = new AutoMapping();
+            var configuration = new MapperConfiguration(cfg => cfg.AddProfile(myProfile));
+            IMapper mapper = new Mapper(configuration);
+            //logger
+            var mockLog = new Mock<ILogger<PersonasController>>();
+            ILogger<PersonasController> logger = mockLog.Object;
+
+
             //Arrange
 
             var Iddoc = 1;
@@ -81,7 +100,7 @@ namespace Persona.UnitTest.Application
 
             //todo para el de estadisticas me pide la interfaz del repositorio buscar eso
             //Act
-            var perController = new PersonasController(catalogContext);
+            var perController = new PersonasController(catalogContext, mapper, logger);
             var actionResult = await perController.GetPersona(Iddoc);
 
             //Assert

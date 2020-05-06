@@ -3,10 +3,19 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>89372fab-7a0c-4302-ad13-34f085b1e6fc</UserSecretsId>
-    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="App_Data\**" />
+    <Content Remove="App_Data\**" />
+    <EmbeddedResource Remove="App_Data\**" />
+    <None Remove="App_Data\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Dapper" Version="2.0.35" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />

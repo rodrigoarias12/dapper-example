@@ -39,14 +39,12 @@ namespace Persona.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
             services.AddControllers()
              // Added for functional tests
              .AddApplicationPart(typeof(PersonasController).Assembly)
              .AddApplicationPart(typeof(EstadisticasController).Assembly)
              .AddApplicationPart(typeof(RelacionesController).Assembly)
              .AddNewtonsoftJson();
-
             //config swagger
             //Add framework services.
             services.AddSwaggerGen(options =>
@@ -60,14 +58,12 @@ namespace Persona.API
                 });
 
             });
-
             //inyectar context bd 
             var connection = Configuration.GetConnectionString("myDb1");
             services.AddDbContext<PersonaContext>(options => options.UseSqlServer(connection));
-            //iod
+            //IoC
             services.AddTransient<IEstadisticaRepository, EstadisticasRepository>();
-
-            //automapper
+            //Automapper
             services.AddAutoMapper(typeof(Startup));
         }
 

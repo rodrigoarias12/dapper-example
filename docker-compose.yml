@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  persona.api:
-    image: ${DOCKER_REGISTRY-}personaapi
-    build:
-      context: .
-      dockerfile: Persona.API\Dockerfile

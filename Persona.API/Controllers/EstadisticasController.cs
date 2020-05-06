@@ -30,7 +30,7 @@ namespace Persona.API.Controllers
             {
                 return NotFound();
             }
-            return Ok(devolucion);
+            return devolucion;
         }
 
 

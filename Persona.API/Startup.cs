@@ -22,6 +22,7 @@ namespace Persona.API
     {
         public Startup(Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
         {
+            //Configuracion levantar appsettings dependiendo del ambiente.
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -46,7 +47,7 @@ namespace Persona.API
              .AddNewtonsoftJson();
 
             //config swagger
-            // Add framework services.
+            //Add framework services.
             services.AddSwaggerGen(options =>
             {
                 options.DescribeAllEnumsAsStrings();

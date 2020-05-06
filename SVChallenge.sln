@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persona.API", "Persona.API\Persona.API.csproj", "{BB3668F1-EA61-4703-8131-0DFBADCE32BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persona.API", "Persona.API\Persona.API.csproj", "{BB3668F1-EA61-4703-8131-0DFBADCE32BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{B7CBF176-5C49-44BB-8CC1-8DEE93241F2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persona.UnitTest", "Persona.UnitTest\Persona.UnitTest.csproj", "{D5BB99EF-DF53-4F76-ABD2-1B5B13F49607}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{BB3668F1-EA61-4703-8131-0DFBADCE32BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB3668F1-EA61-4703-8131-0DFBADCE32BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB3668F1-EA61-4703-8131-0DFBADCE32BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5BB99EF-DF53-4F76-ABD2-1B5B13F49607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5BB99EF-DF53-4F76-ABD2-1B5B13F49607}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5BB99EF-DF53-4F76-ABD2-1B5B13F49607}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5BB99EF-DF53-4F76-ABD2-1B5B13F49607}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D5BB99EF-DF53-4F76-ABD2-1B5B13F49607} = {B7CBF176-5C49-44BB-8CC1-8DEE93241F2D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2920E1EA-0B6B-4C69-87A4-DF34C82D2BD0}

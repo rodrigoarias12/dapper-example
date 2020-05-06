@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persona.API.Model;
+using Persona.API.ModelView;
 
 namespace Persona.API.Controllers
 {
@@ -77,16 +78,17 @@ namespace Persona.API.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Persona.API.Model.Persona>> PostPersona(Persona.API.Model.Persona persona)
+        public async Task<ActionResult<Persona.API.Model.Persona>> PostPersona(PersonaDTO Nuevo)
         {
-            _context.Persona.Add(persona);
+            Persona.API.Model.Persona nueva_persona = new Persona.API.Model.Persona();
+            _context.Persona.Add(nueva_persona);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (PersonaExists(persona.IdDoc))
+                if (PersonaExists(nueva_persona.IdDoc))
                 {
                     return Conflict();
                 }
@@ -96,7 +98,7 @@ namespace Persona.API.Controllers
                 }
             }
 
-            return CreatedAtAction("GetPersona", new { id = persona.IdDoc }, persona);
+            return CreatedAtAction("GetPersona", new { id = nueva_persona.IdDoc }, nueva_persona);
         }
 
         [HttpPost(":id1/padre/:id2")]
@@ -106,6 +108,7 @@ namespace Persona.API.Controllers
             AddRelacion.IdDoc1 = id1;
             AddRelacion.IdDoc2 = id2;
             AddRelacion.IdRelacion = 1;
+            //Agregar Relacion
             _context.Relacion.Add(AddRelacion);
             try
             {
@@ -142,5 +145,6 @@ namespace Persona.API.Controllers
         {
             return _context.Persona.Any(e => e.IdDoc == id);
         }
+      
     }
 }

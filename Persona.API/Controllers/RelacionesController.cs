@@ -21,20 +21,20 @@ namespace Persona.API.Controllers
         {
             _context = context;
         }
-        // GET: api/Relaciones/5
+        // GET: api/Relaciones/5/1
         [HttpGet("{id1}/{id2}", Name = "Get")]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        [ProducesResponseType(typeof(Relacion), (int)HttpStatusCode.OK)]
-        public async Task< ActionResult<Relacion>> Get(int id1,int id2)
+        [ProducesResponseType(typeof(RelacionDTO), (int)HttpStatusCode.OK)]
+        public async Task< ActionResult<RelacionDTO>> Get(int id1,int id2)
         {
             var _relacion = await _context.Relacion.FindAsync(id1,id2);
-
+          
             if (_relacion == null)
             {
                 return NotFound();
             }
-
-            return Ok(_relacion);
+            var _relacionDTO = new RelacionDTO(_relacion);
+            return _relacionDTO;
         }
 
     }

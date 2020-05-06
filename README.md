@@ -18,7 +18,9 @@ $ git clone https://github.com/rodrigoarias12/SVChallenge
 ```
 ## 2-Abrir el proyecto con visual studio. 
 ## 3-Desde la consola de visual studio se ejecuto la siguiente sentencia para migrar la base a un script.
-dotnet ef migrations script --output "script.sql" --project Persona.API
+```
+gitdotnet ef migrations script --output "script.sql" --project Persona.API
+```
 Puede ejecutar el siguiente script en su motor de base local 
 ## 4-Abrir el archivo appsettings y poner la cadena de conexión.
 En myDb1

@@ -1,6 +1,9 @@
 ﻿using System;
+using System.IO;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Configuration;
 
 namespace Persona.API.Model
 {
@@ -10,8 +13,7 @@ namespace Persona.API.Model
         {
         }
 
-        public PersonaContext(DbContextOptions<PersonaContext> options)
-            : base(options)
+        public PersonaContext(DbContextOptions<PersonaContext> options): base(options)
         {
         }
         public virtual DbSet<Contacto> Contacto { get; set; }
@@ -58,5 +60,22 @@ namespace Persona.API.Model
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+    }
+    public class PersonaContextDesignFactory : IDesignTimeDbContextFactory<PersonaContext>
+    {
+        public PersonaContext CreateDbContext(string[] args)
+        {
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+              .SetBasePath(Directory.GetCurrentDirectory())
+              .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+              .AddEnvironmentVariables()
+              .Build();
+
+            var connectionString = configuration["connectionString"];
+            var optionsBuilder = new DbContextOptionsBuilder<PersonaContext>()
+                .UseSqlServer(connectionString);
+            return new PersonaContext(optionsBuilder.Options);
+
+        }
     }
 }

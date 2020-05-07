@@ -20,6 +20,10 @@ namespace Persona.API.Controllers
         {
             _employeeRepo = employeeRepo;
         }
+        /// <summary>
+        /// Las estadisticas se devuelven para ARGENTINA con ID 12
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType(typeof(EstadisticasDTO), (int)HttpStatusCode.OK)]

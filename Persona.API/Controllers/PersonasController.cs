@@ -78,6 +78,16 @@ namespace Persona.API.Controllers
             return NoContent();
         }
 
+
+        /// <summary>
+        /// Post de persona.
+        /// </summary>
+        /// <param name="_personaDTO">
+        /// En el caso del sexo se toma un chart de 1 al no estar parametrizado:
+        /// M -> Masculino
+        /// F -> Femenino
+        /// </param>
+        /// <returns></returns>
         // POST: api/Persona
         [HttpPost]
         public async Task<ActionResult<Persona.API.Model.Persona>> PostPersona(PersonaDTO _personaDTO)

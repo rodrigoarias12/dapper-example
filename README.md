@@ -1,5 +1,4 @@
-# SV Challenge
-# Arquitectura SuperVielle Challenge
+# Arquitectura
 En base a los atributos de calidad la solución está preparada para poder lograr subir un contenedor con la solución API en un entorno Kubernetes o cualquier orquestador. 
 En la siguiente arquitectura podemos ver el host en AZURE del contenedor de la API y también de la base de datos. 
 

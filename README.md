@@ -13,7 +13,7 @@ En la siguiente arquitectura podemos ver el host en AZURE del contenedor de la A
 Descargar el proyecto de github:
 Ejecutar en su consola git:
 ```git
-$ git clone https://github.com/rodrigoarias12/SVChallenge
+$ git clone https://github.com/rodrigoarias12/dapper-example
 ```
 ## 2-Abrir el proyecto con visual studio. 
 ## 3-Desde la consola de visual studio se ejecuto la siguiente sentencia para migrar la base a un script.
